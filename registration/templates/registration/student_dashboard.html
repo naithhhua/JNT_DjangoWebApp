@@ -7,23 +7,42 @@
     <title>Student Dashboard</title>
 </head>
 <body>
+    <h2>Student Dashboard</h2>
 
-    <header>
-        <h1>Student Dashboard</h1>
-        <nav>
-            <a href="{% url 'student_list' %}">Student List</a> |
-            <a href="{% url 'student_create' %}">Register Student</a> |
-            <a href="{% url 'student_dashboard' %}">Student Dashboard</a>
-        </nav>
-    </header>
+    <p>Total Records: <span id="student-count">0</span></p>
 
-    <hr>
+    <!-- Search, Filter, and Action Controls -->
+    <section>
+        <label for="student-search">Search name or email:</label>
+        <input
+            type="search"
+            id="student-search"
+            placeholder="Type a name or email"
+        >
 
-    <h2>Total Students: <span id="student-count">0</span></h2>
+        <label for="program-filter">Filter by program:</label>
+        <select id="program-filter">
+            <option value="">All programs</option>
+        </select>
+
+        <button type="button" id="clear-filters">
+            Clear Filters
+        </button>
+
+        <button type="button" id="refresh-students">
+            Refresh Data
+        </button>
+    </section>
+
+    <!-- Filtered Result Count -->
+    <p id="result-count" aria-live="polite">Showing students</p>
+
+    <!-- Status Messages -->
     <p id="loading-message">Loading students...</p>
     <p id="error-message" style="color: red;"></p>
 
-    <table border="1" id="student-table">
+    <!-- Student Table -->
+    <table border="1">
         <thead>
             <tr>
                 <th>ID</th>
@@ -33,10 +52,10 @@
                 <th>Email</th>
             </tr>
         </thead>
-        <tbody id="student-table-body">
-        </tbody>
+        <tbody id="student-table-body"></tbody>
     </table>
 
+    <!-- JavaScript File -->
     <script src="{% static 'registration/js/student_dashboard.js' %}"></script>
 </body>
 </html>
