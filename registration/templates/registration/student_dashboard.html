@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+</head>
+<body>
+
+    <header>
+        <h1>Student Dashboard</h1>
+        <nav>
+            <a href="{% url 'student_list' %}">Student List</a> |
+            <a href="{% url 'student_create' %}">Register Student</a> |
+            <a href="{% url 'student_dashboard' %}">Student Dashboard</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <h2>Total Students: <span id="student-count">0</span></h2>
+    <p id="loading-message">Loading students...</p>
+    <p id="error-message" style="color: red;"></p>
+
+    <table border="1" id="student-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Program</th>
+                <th>Year Level</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="student-table-body">
+        </tbody>
+    </table>
+
+    <script src="{% static 'registration/js/student_dashboard.js' %}"></script>
+</body>
+</html>
