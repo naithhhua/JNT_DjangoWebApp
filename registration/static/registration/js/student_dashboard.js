@@ -54,4 +54,4 @@ async function loadStudents() {
 }
 
 // Automatically execute on load
-loadStudents();
+loadStudents()
